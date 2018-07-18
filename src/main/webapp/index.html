@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Bunch of Movies</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Bunch of Movies</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!--Example 1: ng-hide, ng-model
+    <div ng-hide="isHidden">
+    Name: <input type="text" ng-model="name"/>{{name}}
+    </div>
+    Hide div: <input type="checkbox" ng-model="isHidden"/>
+    -->
+     
+    <!-- Example 2: ng-init, ng-click
+    <div ng-init ="name='john'">
+    	<div ng-hide="isHidden">
+    	Name: <input type="text" ng-model="name"/>{{name}}
+    	<br/>
+    	<button ng-click="name='Jane'">Change name</button>
+    </div>
+     -->
+     
+  	Hide Table: <input type="checkbox" ng-model="hiddenTable"/>
+  	
+    <div class = "table" ng-hide="hiddenTable" ng-init ="movies=[{'id': '1', 'name': 'Rambo','genre': 'Action', 'rating': '18'},{'id': '2', 'name': 'Forrest Gump','genre': 'Comedy', 'rating': '15'}, {'id': '3', 'name': 'Inception','genre': 'Sci-fi', 'rating': '15'}, {'id': '4', 'name': 'Pulpfiction','genre': 'Action', 'rating': '18'}, {'id': '5', 'name': 'Breakfast Club','genre': 'Drama', 'rating': '15'}, {'id': '6', 'name': 'The Incredibles','genre': 'Animations', 'rating': 'PG'}, {'id': '7', 'name': 'Deadpool','genre': 'Action', 'rating': '18'}]">
+    	Movie Search: <input type="text" id ="myInput" placeholder="Search movies" ng-model="usersearch">
+    	
+    	<h3><span>Real Movies</span></h3>
+    	<table class="table table-striped">
+    		<tr>
+    			<th><a href=# ng-click="sortType = 'name'">Id<span ng-show="sortType == 'name'"</span></a></th>
+    			<th><a href=# ng-click="sortType = 'name'">Name<span ng-show="sortType == 'name'"</span></a></th>
+    			<th><a href=# ng-click="sortType = 'name'">Genre<span ng-show="sortType == 'name'"</span></a></th>
+    			<th><a href=# ng-click="sortType = 'name'">Rating<span ng-show="sortType == 'name'"</span></a></th>
+    		</tr>
+    		<tr ng-repeat="movie in movies | filter:usersearch">
+    			<td>{{movie.id}}</td>
+    			<td>{{movie.name | uppercase}}</td>
+    			<td>{{movie.genre}}</td>
+    			<td>{{movie.rating}}</td>
+    		</tr>
+    	</table>	
+    </div>
+    
+    
+    
+	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/ui-router.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>
